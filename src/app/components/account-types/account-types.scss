@@ -1,0 +1,227 @@
+.account-types {
+  padding: 80px 0;
+  background: var(--bg-dark-secondary);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.section-intro {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  line-height: 1.8;
+}
+
+.account-packages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.account-card {
+  background: var(--bg-dark-tertiary);
+  border-radius: 10px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.account-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
+  border-color: var(--primary-red);
+}
+
+.account-card.featured {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-red) 100%);
+  color: var(--text-primary);
+  border-color: var(--primary-red);
+  transform: scale(1.05);
+}
+
+.account-card.featured .account-name,
+.account-card.featured .account-label,
+.account-card.featured .account-features p {
+  color: var(--text-primary);
+}
+
+.account-card.featured .account-price {
+  color: var(--text-primary);
+}
+
+.account-badge {
+  position: absolute;
+  top: -15px;
+  right: 20px;
+  background: var(--primary-green);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.account-header {
+  margin-bottom: 1.5rem;
+}
+
+.account-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.account-price {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.currency {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-red);
+}
+
+.amount {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-red);
+  line-height: 1;
+}
+
+.account-card.featured .currency,
+.account-card.featured .amount {
+  color: var(--text-primary);
+}
+
+.account-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.account-features {
+  margin-bottom: 2rem;
+  min-height: 80px;
+}
+
+.account-features p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.btn-account {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-red) 100%);
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 100%;
+  text-align: center;
+}
+
+.btn-account:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
+}
+
+.account-card.featured .btn-account {
+  background: var(--text-primary);
+  color: var(--primary-red);
+}
+
+.account-card.featured .btn-account:hover {
+  background: var(--bg-dark-tertiary);
+  color: var(--text-primary);
+}
+
+.account-footer {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.account-footer h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.account-footer p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.btn-link {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-red) 100%);
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
+}
+
+@media (max-width: 968px) {
+  .account-packages {
+    grid-template-columns: 1fr;
+  }
+
+  .account-card.featured {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .account-price {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .amount {
+    font-size: 2.5rem;
+  }
+}

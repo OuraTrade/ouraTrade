@@ -1,0 +1,54 @@
+<section class="hero">
+  <!-- Animated Background Elements -->
+  <div class="trading-background">
+    <div class="chart-line line-1"></div>
+    <div class="chart-line line-2"></div>
+    <div class="chart-line line-3"></div>
+    <div class="floating-data" *ngFor="let data of floatingData()" [class]="'floating-data-' + data.position">
+      <span class="data-value">{{ data.value }}</span>
+      <span class="data-label">{{ data.label }}</span>
+    </div>
+  </div>
+
+  <!-- Stock Ticker -->
+  <div class="stock-ticker">
+    <div class="ticker-content">
+      <div class="ticker-item" *ngFor="let stock of stocks()">
+        <span class="stock-symbol">{{ stock.symbol }}</span>
+        <span class="stock-price" [class.positive]="stock.changePercent > 0" [class.negative]="stock.changePercent < 0">
+          ${{ stock.price }}
+        </span>
+        <span class="stock-change" [class.positive]="stock.changePercent > 0" [class.negative]="stock.changePercent < 0">
+          {{ stock.changePercent > 0 ? '+' : '' }}{{ stock.changePercent.toFixed(2) }}%
+        </span>
+      </div>
+      <!-- Duplicate for seamless loop -->
+      <div class="ticker-item" *ngFor="let stock of stocks()">
+        <span class="stock-symbol">{{ stock.symbol }}</span>
+        <span class="stock-price" [class.positive]="stock.changePercent > 0" [class.negative]="stock.changePercent < 0">
+          ${{ stock.price }}
+        </span>
+        <span class="stock-change" [class.positive]="stock.changePercent > 0" [class.negative]="stock.changePercent < 0">
+          {{ stock.changePercent > 0 ? '+' : '' }}{{ stock.changePercent.toFixed(2) }}%
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Content -->
+  <div class="hero-content">
+    <div class="container">
+      <div class="hero-title-wrapper animate-fade-in-up">
+        <span class="hero-title-small">Financial Investment</span>
+        <h1 class="hero-title-highlight">Your Link to Global Markets</h1>
+      </div>
+      <p class="hero-subtitle animate-fade-in-up-delay">With 5 years of experience and 50+ international stocks traded, Oura Trade International helps clients grow beyond borders.</p>
+      <a routerLink="/contact" class="hero-cta-button">Contact Us</a>
+    </div>
+  </div>
+
+  <!-- Animated Particles -->
+  <div class="particles">
+    <div class="particle" *ngFor="let i of particleArray; let idx = index" [style.animation-delay]="idx * 0.1 + 's'"></div>
+  </div>
+</section>
