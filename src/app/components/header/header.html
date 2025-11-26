@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="container">
       <div class="navbar-brand">
-        <a routerLink="/" class="logo">
+        <a routerLink="/" class="logo" (click)="closeMenu()">
           <img src="/logo/logo-light.png" alt="Oura Trade" class="logo-img" />
         </a>
       </div>
@@ -12,25 +12,25 @@
         <span></span>
       </button>
       <ul class="navbar-nav" [class.active]="isMenuOpen()">
-        <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Home</a></li>
         <li class="dropdown">
           <a href="#">Company</a>
           <ul class="dropdown-menu">
-            <li><a routerLink="/about">About Us</a></li>
-            <li><a routerLink="/careers">Careers</a></li>
+            <li><a routerLink="/about" (click)="closeMenu()">About Us</a></li>
+            <li><a routerLink="/careers" (click)="closeMenu()">Careers</a></li>
           </ul>
         </li>
-        <li><a routerLink="/markets">Markets</a></li>
-        <li><a routerLink="/account-types">Account Types</a></li>
-        <li><a routerLink="/partners">Partners</a></li>
+        <li><a routerLink="/markets" (click)="closeMenu()">Markets</a></li>
+        <li><a routerLink="/account-types" (click)="closeMenu()">Account Types</a></li>
+        <li><a routerLink="/partners" (click)="closeMenu()">Partners</a></li>
         <li class="dropdown">
           <a href="#">Insights</a>
           <ul class="dropdown-menu">
-            <li><a routerLink="/blog">Blog</a></li>
-            <li><a routerLink="/news">Latest News</a></li>
+            <li><a routerLink="/blog" (click)="closeMenu()">Blog</a></li>
+            <li><a routerLink="/news" (click)="closeMenu()">Latest News</a></li>
           </ul>
         </li>
-        <li><a routerLink="/contact">Contact Us</a></li>
+        <li><a routerLink="/contact" (click)="closeMenu()">Contact Us</a></li>
       </ul>
     </div>
   </nav>
