@@ -14,18 +14,41 @@ export class Loader implements OnInit, OnDestroy {
   private startTime = Date.now();
   private minDisplayTime = 1500; // 1.5 seconds minimum
 
-  ngOnInit() {
+  constructor() {
+    // Show loader immediately in constructor (before ngOnInit)
     if (isPlatformBrowser(this.platformId)) {
-      // Always show loader initially
       this.isLoading.set(true);
       this.startTime = Date.now();
+    }
+  }
 
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
       this.loadHandler = () => {
         const elapsed = Date.now() - this.startTime;
         const remaining = Math.max(0, this.minDisplayTime - elapsed);
         
         setTimeout(() => {
+          // Hide the initial static loader from index.html
+          const initialLoader = document.getElementById('initial-loader');
+          if (initialLoader) {
+            initialLoader.classList.add('hidden');
+            // Remove it from DOM after transition
+            setTimeout(() => {
+              initialLoader.remove();
+            }, 600);
+          }
+          
+          // Hide Angular loader
           this.isLoading.set(false);
+          
+          // Show app content - remove inline styles and add loaded class
+          const appRoot = document.querySelector('app-root') as HTMLElement;
+          if (appRoot) {
+            appRoot.style.opacity = '1';
+            appRoot.style.visibility = 'visible';
+            appRoot.classList.add('loaded');
+          }
         }, remaining);
       };
 
