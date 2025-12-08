@@ -29,6 +29,12 @@ export class Hero implements OnInit, OnDestroy {
   private stockSymbols = ['AAPL', 'GOOGL', 'MSFT', 'TSLA', 'AMZN', 'META', 'NVDA'];
   private refreshInterval: any;
 
+  // Rotating services text
+  services = ['Account Management', 'Copy Trading', 'Trading Consultations'];
+  currentServiceIndex = signal(0);
+  isRotating = signal(false);
+  private serviceInterval: any;
+
   constructor() {
     // Initialize with fallback data immediately
     this.stocks.set(this.getFallbackStocks());
@@ -38,6 +44,8 @@ export class Hero implements OnInit, OnDestroy {
       this.loadStockData();
       // Refresh stock data every 30 seconds
       this.refreshInterval = setInterval(() => this.loadStockData(), 30000);
+      // Start rotating services text
+      this.startServiceRotation();
     });
   }
 
@@ -46,10 +54,28 @@ export class Hero implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    // Clean up interval
+    // Clean up intervals
     if (this.refreshInterval) {
       clearInterval(this.refreshInterval);
     }
+    if (this.serviceInterval) {
+      clearInterval(this.serviceInterval);
+    }
+  }
+
+  startServiceRotation() {
+    // Rotate services every 3 seconds
+    this.serviceInterval = setInterval(() => {
+      this.isRotating.set(true);
+      setTimeout(() => {
+        this.currentServiceIndex.update(index => (index + 1) % this.services.length);
+        this.isRotating.set(false);
+      }, 300); // Half of animation duration
+    }, 3000);
+  }
+
+  getCurrentService(): string {
+    return this.services[this.currentServiceIndex()];
   }
 
   async loadStockData() {

@@ -125,14 +125,40 @@
 
 .account-features {
   margin-bottom: 2rem;
-  min-height: 80px;
+  min-height: 120px;
 }
 
-.account-features p {
+.account-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.account-features li {
   font-size: 1rem;
   color: var(--text-secondary);
-  line-height: 1.6;
-  margin: 0;
+  line-height: 1.8;
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.account-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary-green);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.account-card.featured .account-features li::before {
+  color: var(--text-primary);
+}
+
+.account-card.featured .account-features li {
+  color: var(--text-primary);
 }
 
 .btn-account {
