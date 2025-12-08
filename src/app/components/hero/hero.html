@@ -39,10 +39,14 @@
   <div class="hero-content">
     <div class="container">
       <div class="hero-title-wrapper animate-fade-in-up">
-        <span class="hero-title-small">Financial Investment</span>
+        <span class="hero-title-small">
+          <span class="rotating-service" [class.fade-out]="isRotating()">
+            {{ getCurrentService() }}
+          </span>
+        </span>
         <h1 class="hero-title-highlight">Your Link to Global Markets</h1>
       </div>
-      <p class="hero-subtitle animate-fade-in-up-delay">With 5 years of experience and 50+ international stocks traded, Oura Trade International helps clients grow beyond borders.</p>
+      <p class="hero-subtitle animate-fade-in-up-delay">Since 2020, we've specialized in NAS100 trading through Fusion Markets. Offering copy trading, professional account management, and trading consultations to help you navigate the markets with confidence.</p>
       <a routerLink="/contact" class="hero-cta-button">Contact Us</a>
     </div>
   </div>

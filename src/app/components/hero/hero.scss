@@ -350,6 +350,20 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   animation: slideInLeft 1s ease-out;
+  min-height: 2rem;
+  position: relative;
+}
+
+.rotating-service {
+  display: inline-block;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.rotating-service.fade-out {
+  opacity: 0;
+  transform: translateY(-10px);
 }
 
 .hero-title-highlight {
